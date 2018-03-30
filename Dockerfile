@@ -22,6 +22,7 @@ RUN apt-get update && apt-get install -y cmake git libgtk2.0-dev pkg-config liba
 	-DBUILD_PERF_TESTS=OFF \
 	-DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib-{OPENCV_VERSION}/modules \
 	-DCMAKE_BUILD_TYPE=RELEASE .. \
+	&& make \
 	&& make install \
 	&& rm /opencv-${OPENCV_VERSION}.zip \
 	&& rm /opencv_contrib-${OPENCV_VERSION}.zip \
