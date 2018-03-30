@@ -17,5 +17,5 @@ RUN apt-get update && apt-get install -y cmake git libgtk2.0-dev pkg-config liba
 	&& rm /opencv_contrib-${OPENCV_VERSION}.zip \
 	&& rm -r /opencv-${OPENCV_VERSION} \
 	&& rm -r /opencv_contrib-${OPENCV_VERSION} \
-	&& apt-get remove -y cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev unzip wget && apt-get autoremove\
+	&& apt-get remove -y cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev unzip wget && apt-get autoremove -y\
 	&& rm -rf /var/lib/apt/lists/*
