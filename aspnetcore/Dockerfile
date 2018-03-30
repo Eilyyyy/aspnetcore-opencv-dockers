@@ -1,4 +1,4 @@
-FROM microsoft/dotnet:aspnetcore
+FROM microsoft/aspnetcore
 MAINTAINER eilyyy <eilyyy@outlook.com>
 ENV OPENCV_VERSION="3.4.1"
 RUN apt-get update && apt-get install -y --no-install-recommends cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev unzip wget \
