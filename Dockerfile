@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y cmake git libgtk2.0-dev pkg-config liba
 	&& mkdir /opencv-${OPENCV_VERSION}/build \
 	&& cd /opencv-${OPENCV_VERSION}/build \
 	&& cmake -DCMAKE_INSTALL_PREFIX=/usr/local \
-	-DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib-{OPENCV_VERSION}/modules \
+	-DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib-${OPENCV_VERSION}/modules \
 	-DCMAKE_BUILD_TYPE=RELEASE .. \
 	&& make \
 	&& make install \
