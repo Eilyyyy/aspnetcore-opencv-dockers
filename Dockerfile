@@ -6,20 +6,9 @@ RUN apt-get update && apt-get install -y cmake git libgtk2.0-dev pkg-config liba
 	&& wget https://github.com/opencv/opencv_contrib/archive/${OPENCV_VERSION}.zip -O opencv_contrib-${OPENCV_VERSION}.zip \
 	&& unzip opencv-${OPENCV_VERSION}.zip \
 	&& unzip opencv_contrib-${OPENCV_VERSION}.zip \
-	&& mkdir /opencv-${OPENCV_VERSION}/cmake_binary \
-	&& cd /opencv-${OPENCV_VERSION}/cmake_binary \
-	&& cmake -DBUILD_TIFF=ON \
-	-DBUILD_opencv_java=OFF \
-	-DWITH_CUDA=OFF \
-	-DENABLE_AVX=ON \
-	-DWITH_OPENGL=ON \
-	-DWITH_OPENCL=ON \
-	-DWITH_IPP=ON \
-	-DWITH_TBB=ON \
-	-DWITH_EIGEN=ON \
-	-DWITH_V4L=ON \
-	-DBUILD_TESTS=OFF \
-	-DBUILD_PERF_TESTS=OFF \
+	&& mkdir /opencv-${OPENCV_VERSION}/build \
+	&& cd /opencv-${OPENCV_VERSION}/build \
+	&& cmake -DCMAKE_INSTALL_PREFIX=/usr/local \
 	-DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib-{OPENCV_VERSION}/modules \
 	-DCMAKE_BUILD_TYPE=RELEASE .. \
 	&& make \
