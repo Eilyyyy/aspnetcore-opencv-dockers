@@ -13,6 +13,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends cmake g++ git l
 	-DCMAKE_BUILD_TYPE=RELEASE .. \
 	&& make \
 	&& make install \
+	&& ldconfig \
 	&& rm /opencv-${OPENCV_VERSION}.zip \
 	&& rm /opencv_contrib-${OPENCV_VERSION}.zip \
 	&& rm -r /opencv-${OPENCV_VERSION} \

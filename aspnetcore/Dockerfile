@@ -1,7 +1,7 @@
 FROM microsoft/aspnetcore
 MAINTAINER eilyyy <eilyyy@outlook.com>
 ENV OPENCV_VERSION="3.4.1"
-RUN apt-get update && apt-get install -y --no-install-recommends cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev unzip wget \
+RUN apt-get update && apt-get install -y --no-install-recommends cmake g++ git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev unzip wget \
     && wget https://github.com/opencv/opencv/archive/${OPENCV_VERSION}.zip -O opencv-${OPENCV_VERSION}.zip \
 	&& wget https://github.com/opencv/opencv_contrib/archive/${OPENCV_VERSION}.zip -O opencv_contrib-${OPENCV_VERSION}.zip \
 	&& unzip opencv-${OPENCV_VERSION}.zip \
@@ -13,9 +13,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends cmake git libgt
 	-DCMAKE_BUILD_TYPE=RELEASE .. \
 	&& make \
 	&& make install \
+	&& ldconfig \
 	&& rm /opencv-${OPENCV_VERSION}.zip \
 	&& rm /opencv_contrib-${OPENCV_VERSION}.zip \
 	&& rm -r /opencv-${OPENCV_VERSION} \
 	&& rm -r /opencv_contrib-${OPENCV_VERSION} \
-	&& apt-get remove -y cmake git unzip wget && apt-get autoremove -y\
+	&& apt-get remove -y cmake git unzip wget g++ && apt-get autoremove -y\
 	&& rm -rf /var/lib/apt/lists/*
