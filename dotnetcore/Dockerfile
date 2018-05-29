@@ -1,5 +1,5 @@
 FROM microsoft/dotnet:runtime
-MAINTAINER eilyyy <eilyyy@outlook.com>
+LABEL eilyyy <eilyyy@outlook.com>
 ENV OPENCV_VERSION="3.4.1"
 RUN apt-get update && apt-get install -y cmake g++ git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev unzip wget \
     && wget https://github.com/opencv/opencv/archive/${OPENCV_VERSION}.zip -O opencv-${OPENCV_VERSION}.zip \
