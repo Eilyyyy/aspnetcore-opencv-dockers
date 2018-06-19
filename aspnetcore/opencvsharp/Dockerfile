@@ -1,4 +1,4 @@
-FROM jingqian/aspnetcore-opencv-dockers:aspnet-2.1.0
+FROM jingqian/aspnetcore-opencv-dockers:aspnet-2.1.1
 LABEL eilyyy <eilyyy@outlook.com>
 ENV OPENCVSHARP_VERSION="3.4.1.20180320"
 RUN apt-get update && apt-get install -y wget unzip cmake g++ libgdiplus \
