@@ -1,4 +1,4 @@
-FROM microsoft/dotnet:2.1.1-aspnetcore-runtime
+FROM microsoft/dotnet:2.1.5-aspnetcore-runtime
 LABEL eilyyy <eilyyy@outlook.com>
 ENV OPENCV_VERSION="3.4.1"
 RUN apt-get update && apt-get install -y cmake g++ git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev unzip wget \
